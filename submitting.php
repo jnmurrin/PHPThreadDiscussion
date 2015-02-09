@@ -14,13 +14,13 @@ date_default_timezone_set('America/Indiana/Tell_City');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Refresh" content="2;url=index.php">
+	<meta http-equiv="Refresh" content="2;url=index.php">
 <title>Message Submitted</title>
 </head>
 <body>
-<div class="refresh">
-<p>The message has been submitted.<br />Please wait, the webpage is redirecting...</p>
-</div>
+	<div class="refresh">
+		<p>The message has been submitted.<br />Please wait, the webpage is redirecting...</p>
+	</div>
 </body>
 </html>
 <?php

@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=esys410';
+    $dsn = 'mysql:host=localhost;dbname=sandbox';
     $username = 'root'; $password = '';
     try {
         $db = new PDO($dsn, $username, $password);
