@@ -1,0 +1,21 @@
+{
+  "name": "PHPThreadDiscussion",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jnmurrin/PHPThreadDiscussion",
+  "authors": [
+    "Jennifer <jnmurrin@gmail.com>"
+  ],
+  "description": "class demo on php & database",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.2"
+  }
+}
