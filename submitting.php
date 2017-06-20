@@ -1,15 +1,18 @@
 <?php
 date_default_timezone_set('America/Indiana/Tell_City');
-    $nickname = $_POST['nickname'];
-    $email = $_POST['email'];
-    $content = $_POST['content'];
+$nickname = $_POST['nickname'];
+$email = $_POST['email'];
+$content = $_POST['content'];
+$car = $_POST['car'];
 
-    require("database.php");
-    $createtime = date("Y-m-d h:i:s");
-    $insert_sql = "INSERT INTO guestbook(nickName,email,contents,createtime)VALUES";
-    $insert_sql .= "('$nickname','$email','$content','$createtime')";
-    $count = $db->exec($insert_sql);
-    if($count == 1){
+
+require("database.php");
+$createtime = date("Y-m-d h:i:s");
+$insert_sql = "INSERT INTO guestbook(nickName,email,contents,createtime,carId,device)VALUES";
+$insert_sql .= "('$nickname','$email','$content','$createtime','$car', '')";
+$count = $db->exec($insert_sql);
+
+if($count == 1){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,6 +28,7 @@ date_default_timezone_set('America/Indiana/Tell_City');
 </html>
 <?php
 } else {
+	echo $insert_sql . '<br>';
 echo 'Fail the submit the message: [ <a href="javascript:history.back()">return</a> ]';
 }
 ?>
