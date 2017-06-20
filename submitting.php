@@ -4,12 +4,19 @@ $nickname = $_POST['nickname'];
 $email = $_POST['email'];
 $content = $_POST['content'];
 $car = $_POST['car'];
-
+$device = '';
+foreach ($_POST['device'] as $d){
+	$device .= $d . ', ';
+}
+$social = '';
+foreach ($_POST['social-media'] as $s){
+	$social .= $s . ', ';
+}
 
 require("database.php");
 $createtime = date("Y-m-d h:i:s");
-$insert_sql = "INSERT INTO guestbook(nickName,email,contents,createtime,carId,device)VALUES";
-$insert_sql .= "('$nickname','$email','$content','$createtime','$car', '')";
+$insert_sql = "INSERT INTO guestbook(nickName,email,contents,createtime,carId,device,social)VALUES";
+$insert_sql .= "('$nickname','$email','$content','$createtime','$car','$device','$social')";
 $count = $db->exec($insert_sql);
 
 if($count == 1){

@@ -35,10 +35,12 @@
           $results = $db->query($query);
 
           foreach($results as $gblist) :
-              echo '<h3>' . $gblist['nickName'] . ' <small>posted at: ' . $gblist['createtime'] . '</small></h3><br>' .
-              $gblist['nickName'] . ' wants a new ' . $gblist['carId'] . '<br>' .
-              // 'And their favorite device is ' . $gblist['device'] . '<br>' .
-                  'contents: ' . $gblist['contents'] . '<br><hr>';
+              echo '<p>Name: ' . $gblist['nickName'] . '</p>' .
+              '<p>Date: ' . $gblist['createtime'] . '</p>' .
+              '<p>Car: ' . $gblist['carId'] . '</p>' .
+              '<p>device: ' . $gblist['device'] . '</p>' .
+              '<p>Social: ' . $gblist['social'] . '</p>' .
+              '<p>Message: ' . $gblist['contents'] . '</p><hr>';
           endforeach;
 
           $count_sql = "SELECT count(*) FROM guestbook";
