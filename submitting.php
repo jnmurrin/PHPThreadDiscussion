@@ -23,15 +23,15 @@ if($count == 1){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta http-equiv="Refresh" content="2;url=index.php">
-<title>Message Submitted</title>
-</head>
-<body>
-	<div class="refresh">
-		<p>The message has been submitted.<br />Please wait, the webpage is redirecting...</p>
-	</div>
-</body>
+	<head>
+		<meta http-equiv="Refresh" content="2;url=index.php">
+	<title>Message Submitted</title>
+	</head>
+	<body>
+		<div class="refresh">
+			<p>The message has been submitted.<br />Please wait, the webpage is redirecting...</p>
+		</div>
+	</body>
 </html>
 <?php
 } else {

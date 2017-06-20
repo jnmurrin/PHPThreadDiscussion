@@ -1,51 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Message Board</title>
-
-    <style>
-    .one-half{
-      width: 45%;
-      float:left;
-      padding: 0 2%;
-    }
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
-    <body>
+  <body>
 
-      <div class="container">
-        <div class="one-half">
+    <div class="container">
+      <div class="one-half">
+      <?php
+      require 'function.php';
 
-        <?php
-        require 'function.php';
+        foreach($results as $gblist) :
+            echo 'Name: ' . $gblist['nickName'] . '<br />' .
+            'Date: ' . $gblist['createtime'] . '<br />' .
+            'Car: ' . $gblist['carName'] . '<br />' .
+            'Device: ' . $gblist['device'] . '<br />' .
+            'Social Media: ' . $gblist['social'] . '<br />' .
+            'Message: ' . $gblist['contents'] . '<hr>';
+        endforeach;
 
-          foreach($results as $gblist) :
-              echo 'Name: ' . $gblist['nickName'] . '<br />' .
-              'Date: ' . $gblist['createtime'] . '<br />' .
-              'Car: ' . $gblist['carName'] . '<br />' .
-              'Device: ' . $gblist['device'] . '<br />' .
-              'Social Media: ' . $gblist['social'] . '<br />' .
-              'Message: ' . $gblist['contents'] . '<hr>';
-          endforeach;
+        echo 'There are ' . $count_array[0] . ' messages.';
 
-          echo 'There are ' . $count_array[0] . ' messages.';
-
-          if($pagenum > 1){
-            for($i = 1; $i<=$pagenum; $i++){
-              if($i==$p){
-                echo '[' . $i . ']';
-              }else{
-                echo '<a href="index.php?p=' . $i . '">' . $i . '</a>';
-              }
+        if($pagenum > 1){
+          for($i = 1; $i<=$pagenum; $i++){
+            if($i==$p){
+              echo '[' . $i . ']';
+            }else{
+              echo '<a href="index.php?p=' . $i . '">' . $i . '</a>';
             }
           }
-        ?>
+        }
+      ?>
       </div>
+
       <div class="one-half">
 
         <h3>Leave a Message</h3>
@@ -89,7 +79,7 @@
 
         </form>
       </div><!-- /onehalf -->
-      </div>
+    </div>
 
-    </body>
+  </body>
 </html>
