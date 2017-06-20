@@ -22,42 +22,27 @@
         <div class="one-half">
 
         <?php
-          require 'database.php';
-          $pagesize = 4;
-          if(isset($_GET['p'])){
-              $p = $_GET['p'];
-          }else{
-              $p = 1;
-          }
-          $offset = ($p-1)*$pagesize;
-
-          $query = "SELECT * FROM GUESTBOOK ORDER BY ID DESC LIMIT $offset, $pagesize";
-          $results = $db->query($query);
+        require 'function.php';
 
           foreach($results as $gblist) :
-              echo '<p>Name: ' . $gblist['nickName'] . '</p>' .
-              '<p>Date: ' . $gblist['createtime'] . '</p>' .
-              '<p>Car: ' . $gblist['carId'] . '</p>' .
-              '<p>device: ' . $gblist['device'] . '</p>' .
-              '<p>Social: ' . $gblist['social'] . '</p>' .
-              '<p>Message: ' . $gblist['contents'] . '</p><hr>';
+              echo 'Name: ' . $gblist['nickName'] . '<br />' .
+              'Date: ' . $gblist['createtime'] . '<br />' .
+              'Car: ' . $gblist['carName'] . '<br />' .
+              'Device: ' . $gblist['device'] . '<br />' .
+              'Social Media: ' . $gblist['social'] . '<br />' .
+              'Message: ' . $gblist['contents'] . '<hr>';
           endforeach;
 
-          $count_sql = "SELECT count(*) FROM guestbook";
-          $count_result = $db->query($count_sql);
-          $count_array = $count_result->fetch();
-
-          $pagenum=ceil($count_array[0]/$pagesize);
           echo 'There are ' . $count_array[0] . ' messages.';
 
           if($pagenum > 1){
-              for($i = 1; $i<=$pagenum; $i++){
-                  if($i==$p){
-                      echo '[' . $i . ']';
-                  }else{
-                      echo '<a href="index.php?p=' . $i . '">' . $i . '</a>';
-                  }
+            for($i = 1; $i<=$pagenum; $i++){
+              if($i==$p){
+                echo '[' . $i . ']';
+              }else{
+                echo '<a href="index.php?p=' . $i . '">' . $i . '</a>';
               }
+            }
           }
         ?>
       </div>
@@ -75,9 +60,6 @@
           <p><label>Select a Car</lable></p>
           <select id="car" name="car">
             <?php
-            $carQuery = "SELECT * FROM cars ORDER BY carId DESC";
-            $carResults = $db->query($carQuery);
-
             foreach($carResults as $gblist) :
               echo '<option value="'.$gblist['carId'].'">'.$gblist['carName'].'</option>';
             endforeach;
